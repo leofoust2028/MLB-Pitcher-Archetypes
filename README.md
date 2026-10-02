@@ -1,7 +1,7 @@
 # MLB Pitcher Archetypes
 
 **By Leo Foust**  
-**Originally developed:** November–December 2025 · **Updated:** October 2026  
+**Originally developed:** November–December 2025 · **Updated:** June 2026  
 **Tools:** R, Quarto, tidyverse, ggplot2, K-means, hierarchical clustering, PCA
 
 ## Overview
