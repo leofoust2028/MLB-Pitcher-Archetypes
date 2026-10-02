@@ -1,0 +1,21 @@
+---
+title: "MLB Pitcher Archetypes: Analysis Code"
+author: "Leo Foust"
+format:
+  html:
+    embed-resources: true
+    toc: true
+execute:
+  message: false
+---
+
+# Analysis Code
+
+This is the code used to prepare the data, fit the models, check the results, and make the figures. The analysis reads the four source CSVs and does not use a saved workspace.
+
+```{r}
+#| echo: false
+#| results: asis
+# displaying the same R file used to build the report
+cat("```r\n", paste(readLines("../R/analysis.R"), collapse = "\n"), "\n```\n", sep = "")
+```

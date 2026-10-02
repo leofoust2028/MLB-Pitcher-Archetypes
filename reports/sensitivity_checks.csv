@@ -1,0 +1,6 @@
+check,n_pitchers,shared_pitchers,ari
+70% coverage,256,185,0.9212843776458807
+90% coverage,104,104,0.34283982105828664
+1000 season pitches,155,155,0.9228522434272428
+Without spin direction,185,185,0.24808384695792207
+Without handedness reflection,185,185,0.28076300248228175

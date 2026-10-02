@@ -1,0 +1,11 @@
+.DS_Store
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+.Renviron
+.env
+.quarto/
+*.log
+reports/*.knit.md
+reports/*.utf8.md
