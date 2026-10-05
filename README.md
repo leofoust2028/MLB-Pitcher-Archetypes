@@ -91,7 +91,7 @@ The three-group result was similar at 70% coverage and with at least 1,000 seaso
 
 ### Data preparation
 
-The data used in this project were sourced from **Baseball Savant**, Major League Baseball's public analytics platform, powered by Statcast and Hawkeye technology. Four different datasets were downloaded and combined to construct the final dataset used for analysis.
+The data used in this project were sourced from **Baseball Savant**. Four different datasets were downloaded and combined to construct the final dataset used for analysis.
 
 The final dataset includes **185 pitchers** with at least **300 season pitches**, complete measurements, and **80% of their season pitches represented** in the matched spin and movement data. Median coverage was **90.9%**. For each pitcher, weighted averages were computed across the available pitch types, weighted by pitch counts.
 
