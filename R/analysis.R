@@ -1,3 +1,6 @@
+# install these packages once if needed
+# install.packages(c("tidyverse", "janitor", "cluster", "mclust"))
+
 # read in packages
 library(tidyverse)
 library(janitor)
@@ -10,6 +13,7 @@ data_dir <- file.path(project_dir, "data")
 report_dir <- file.path(project_dir, "reports")
 figure_dir <- file.path(project_dir, "figures")
 dir.create(figure_dir, showWarnings = FALSE)
+dir.create(report_dir, showWarnings = FALSE)
 
 # read in CSV files
 savantdata <- read_csv(file.path(data_dir, "minsavantdata.csv"), show_col_types = FALSE) |>

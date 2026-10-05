@@ -11,7 +11,7 @@ The project was originally developed in November–December 2025. The report was
 | `pitch_movement-2.csv` | Velocity, induced vertical break, horizontal movement magnitude | Pitcher ID and pitch type |
 | `spin-direction-pitches.csv` | Spin rate, clock direction, pitch count, throwing hand | Player ID and pitch type |
 
-The movement and spin exports contain a year column; all rows are 2025. The other two files came from the original 2025 project and do not contain a season column, so their season cannot be independently verified from those files alone. Raw files are unchanged; [checksums](source_checksums.csv) identify the exact copies used.
+The movement and spin exports contain a year column; all rows are 2025. The other two files came from the original 2025 project and do not contain a season column, so their season cannot be independently verified from those files alone. The four raw files are unchanged from the original project.
 
 The original export settings were not saved. Baseball Savant's [movement leaderboard](https://baseballsavant.mlb.com/leaderboard/pitch-movement) and [spin-direction leaderboard](https://baseballsavant.mlb.com/leaderboard/spin-direction-pitches) expose qualification filters. The available files therefore should not be treated as complete pitch-by-pitch season data.
 
@@ -51,19 +51,19 @@ For each of two through five groups, 100 samples contain 80% of pitchers without
 
 Other checks use 20 initialization seeds, coverage thresholds, 1,000 season pitches, omitted spin direction, and omitted handedness reflection. Changing coverage changes the population as well as the fit. Agreement in those checks is measured only on shared pitchers. Results are not independent validation against a known true set of archetypes.
 
-## Rebuilding and checking the project
+## Running the analysis
 
-From the project folder, with R and Quarto installed:
+Open `R/analysis.R` in RStudio with the project folder as your working directory. The first comment lists the required packages. Run the script, or use `Rscript --vanilla R/analysis.R` from the project folder.
 
-```sh
-Rscript --vanilla scripts/install_packages.R
-Rscript --vanilla scripts/check_analysis.R
-quarto render reports/pitcher_archetypes.qmd --to html
-quarto render reports/pitcher_archetypes.qmd --to gfm
-quarto render reports/analysis_code.qmd --to html
-```
+The script creates the plots, pitcher assignments, and supporting CSV tables. The extra tables stay local and are excluded from GitHub to keep the repository focused. No saved R workspace is needed.
 
-The report runs `R/analysis.R`; the formatted code document displays that same file. The R script exports the plots and tables. If data or modeling choices change, update the written interpretations and README to match the new outputs before publishing. No saved `.RData` workspace is needed. Package versions are recorded in `session-info.txt`.
+## References
+
+- [Baseball Savant custom leaderboards](https://baseballsavant.mlb.com/leaderboard/custom)
+- [R silhouette documentation](https://stat.ethz.ch/R-manual/R-devel/library/cluster/html/silhouette.html)
+- [Circular mean](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.circmean.html)
+- [Ward's hierarchical clustering in R](https://www.r-bloggers.com/2017/12/how-to-perform-hierarchical-clustering-using-r/)
+- [Gao et al., overview of clustering methods](https://doi.org/10.1016/j.psychres.2023.115265)
 
 ## What changed in October 2026
 
@@ -74,4 +74,4 @@ The report runs `R/analysis.R`; the formatted code document displays that same f
 - Added cluster-count, initialization, subsampling, coverage, playing-time, and feature-sensitivity checks.
 - Reported two-group evidence alongside the exploratory three-group view and removed claims that PCA or a three-branch cut proves three natural types.
 
-The original 2025 files remain separate from this publication copy. The current README and report describe the updated analysis.
+The original 2025 files remain separate from this publication copy. The current README describes the updated analysis.

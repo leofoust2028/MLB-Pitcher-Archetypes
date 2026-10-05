@@ -79,28 +79,13 @@ Cluster numbers are labels, so Cluster 1 in one method does not necessarily corr
 
 ### How stable are the groups?
 
-I repeated the analysis on 100 samples containing 80% of the pitchers for each cluster count. The measurements were scaled again in each sample. Agreement was measured on the sampled pitchers using the adjusted Rand index: 1 means identical assignments, and 0 is the expected value for random partitions. These are stability checks, not prediction accuracy.
+I repeated the analysis on 100 samples containing 80% of the pitchers for each cluster count. The measurements were scaled again in each sample. Agreement was measured using the adjusted Rand index: 1 means identical assignments, and 0 is the expected value for random partitions.
 
 ![Cluster stability across repeated samples](figures/cluster_stability.png)
 
-| Number of clusters | Median agreement | 10th percentile | 90th percentile |
-| --- | ---: | ---: | ---: |
-| 2 | 0.894 | 0.818 | 0.973 |
-| 3 | 0.737 | 0.279 | 0.943 |
-| 4 | 0.815 | 0.591 | 0.907 |
-| 5 | 0.777 | 0.501 | 0.901 |
+For three groups, the median agreement was **0.737**, but the 10th percentile was **0.279**. Two groups were more stable. Different random seeds gave identical three-group assignments, but changing which pitchers were included mattered more.
 
-For three groups, the median agreement was **0.737**, but the 10th percentile was **0.279**. Two groups were more stable. Repeating the three-group model with 20 different random seeds gave identical assignments; changing which pitchers were included mattered more than random initialization.
-
-| Check | Pitchers in check | Shared pitchers | Adjusted Rand index |
-| --- | ---: | ---: | ---: |
-| 70% coverage | 256 | 185 | 0.921 |
-| 90% coverage | 104 | 104 | 0.343 |
-| 1000 season pitches | 155 | 155 | 0.923 |
-| Without spin direction | 185 | 185 | 0.248 |
-| Without handedness reflection | 185 | 185 | 0.281 |
-
-The three-group result was similar at 70% coverage and with at least 1,000 season pitches. It changed more at 90% coverage and when spin direction was removed. That means the exact assignments depend on both the sample and the feature choices.
+The three-group result was similar at 70% coverage and with at least 1,000 season pitches. It changed more at 90% coverage and when spin direction was removed. These are stability checks, not prediction accuracy.
 
 ## Data and Methods
 
@@ -110,7 +95,7 @@ The data used in this project were sourced from **Baseball Savant**, Major Leagu
 
 The final dataset includes **185 pitchers** with at least **300 season pitches**, complete measurements, and **80% of their season pitches represented** in the matched spin and movement data. Median coverage was **90.9%**. For each pitcher, weighted averages were computed across the available pitch types, weighted by pitch counts.
 
-The exports do not include every pitch type for every pitcher. I checked coverage against the season totals and used the same complete pitch rows for all weighted averages. [Pitch coverage audit](reports/pitch_coverage_audit.csv).
+The exports do not include every pitch type for every pitcher. I checked coverage against the season totals and used the same complete pitch rows for all weighted averages.
 
 ### Spin direction and handedness
 
@@ -134,15 +119,11 @@ The coverage requirement reduces missing-arsenal problems but also changes the s
 
 This could be extended into future work by integrating outcome-based and pitch sequence-based data to see how different profiles perform in various contexts, and by checking whether the groups remain consistent across seasons.
 
-## Code and Report
+## Code and Data
 
-- [Full report](reports/pitcher_archetypes.md)
 - [R analysis](R/analysis.R)
-- [Formatted analysis code](reports/analysis_code.html)
 - [Pitcher cluster assignments and measurements](reports/pitcher_cluster_assignments.csv)
-- [Cluster summary in original units](reports/cluster_summary.csv)
-- [Validation results](reports/sensitivity_checks.csv)
 - [Data sources and methods](docs/data_and_methods.md)
 - [Source data](data/)
 
-*Full references are included in the report. Source data remain subject to their providers' terms.*
+*Source data remain subject to their providers' terms.*

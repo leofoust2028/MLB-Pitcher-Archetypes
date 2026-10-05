@@ -1,2 +1,0 @@
-n_pitchers,median_coverage,pca_two_components,matched_agreement,hc_ari,hand_ari,unmirrored_hand_ari,k3_silhouette,best_silhouette_k,negative_silhouette_share
-185,0.9093686354378818,0.510974810081988,0.7513513513513513,0.40580486765260526,0.002145995071772382,0.05008803955469926,0.1411182464560796,2,0.08108108108108109

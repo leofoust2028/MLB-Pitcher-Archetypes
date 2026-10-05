@@ -9,3 +9,11 @@
 *.log
 reports/*.knit.md
 reports/*.utf8.md
+
+# extra results can be recreated by the analysis and stay local
+reports/*
+!reports/pitcher_cluster_assignments.csv
+session-info.txt
+figures/release_horizontal.png
+figures/spin_ivb.png
+figures/velocity_ivb.png
